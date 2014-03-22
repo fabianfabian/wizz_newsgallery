@@ -1,0 +1,18 @@
+config.tx_extbase {
+    persistence {
+        classes {
+            TYPO3\WizzNewsgallery\Domain\Model\Media {
+                mapping {
+                    tableName = tx_news_domain_model_media
+                    #recordType = Tx_Newsgallery_Media
+                }
+            }    
+            TYPO3\WizzNewsgallery\Domain\Model\News {
+                mapping {
+                    tableName = tx_news_domain_model_news
+                    #recordType = Tx_Newsgallery_Media
+                }
+            }       
+    	}
+    }
+}

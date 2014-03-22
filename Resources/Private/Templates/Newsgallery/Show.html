@@ -1,0 +1,32 @@
+{namespace n=Tx_News_ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<f:debug>{settings}</f:debug>
+
+<div class="wizz-newsgallery" >
+	<f:for each="{media}" as="mediaItem">
+		<n:link newsItem="{mediaItem.newsItem}" settings="{settings}">
+			<f:image alt="{mediaItem.newsItem.title}" src="uploads/tx_news/{mediaItem.image.image}" width="300m" height="300m" />
+  		</n:link>
+	</f:for>
+</div>
+
+<script>
+$(document).ready(function() {
+	$('.wizz-newsgallery').justifiedGallery({
+		sizeRangeSuffixes: {
+			'lt100':'', 
+			'lt240':'', 
+			'lt320':'', 
+			'lt500':'', 
+			'lt640':'', 
+			'lt1024':''
+		}
+	});
+});
+</script>
+
+</f:section>

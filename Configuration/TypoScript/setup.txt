@@ -1,0 +1,26 @@
+plugin.tx_wizznewsgallery {
+	view {
+		templateRootPath = {$plugin.tx_wizznewsgallery.view.templateRootPath}
+		partialRootPath = {$plugin.tx_wizznewsgallery.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_wizznewsgallery.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_wizznewsgallery.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+	settings {
+
+	     # page where the news plugin for single view is located
+		 detailPid =
+
+		 # maximum number of images to show
+		 limit = 10
+	}
+}
+
+page.includeCSS.wizz_newsgallery_justified_gallery = EXT:wizz_newsgallery/Resources/Public/Justified-Gallery/jquery.justifiedgallery.min.css
+page.includeJSFooter.wizz_newsgallery_justified_gallery = EXT:wizz_newsgallery/Resources/Public/Justified-Gallery/jquery.justifiedgallery.min.js
+
