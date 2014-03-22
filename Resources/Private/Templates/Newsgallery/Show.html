@@ -8,7 +8,7 @@
 
 <div class="wizz-newsgallery" >
 	<f:for each="{media}" as="mediaItem">
-		<n:link newsItem="{mediaItem.newsItem}" settings="{settings}">
+		<n:link newsItem="{mediaItem.newsItem}" settings="{settings}" title="{mediaItem.newsItem.title}">
 			<f:image alt="{mediaItem.newsItem.title}" src="uploads/tx_news/{mediaItem.image.image}" width="300m" height="300m" />
   		</n:link>
 	</f:for>
