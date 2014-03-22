@@ -33,5 +33,8 @@ Available options are:
 
 Notes
 =====
-* jQuery is required. This extension does not come with jQuery included. You should already have jQuery loaded
-* 
+jQuery is required. This extension does not come with jQuery included. You should already have jQuery loaded
+
+Download
+========
+[Download wizz_newsgallery](http://typo3.org/extensions/repository/view/wizz_newsgallery) (TYPO3 Extension Repository)
