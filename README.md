@@ -12,12 +12,15 @@ Screenshots
 -----------
 
 TYPO3 6.2.2 Bootstrap package + News 3.0.0:
+
 ![Screenshot-frontend](Resources/Screenshots/Newsgallery_622.png)
 
 TYPO3 6.1.0 Introduction package + News 2.3.0:
+
 ![Screenshot-frontend](Resources/Screenshots/Newsgallery_frontend.png)
 
 Backend:
+
 ![Screenshot-backend](Resources/Screenshots/Newsgallery_backend.png)
 
 
