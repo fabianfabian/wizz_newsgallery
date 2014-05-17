@@ -4,29 +4,20 @@
 
 <f:section name="main">
 
-<f:debug>{settings}</f:debug>
-
 <div class="wizz-newsgallery" >
 	<f:for each="{media}" as="mediaItem">
 		<n:link newsItem="{mediaItem.newsItem}" settings="{settings}" title="{mediaItem.newsItem.title}">
-			<f:image alt="{mediaItem.newsItem.title}" src="uploads/tx_news/{mediaItem.image.image}" width="300m" height="300m" />
+            <f:if condition="{mediaItem.image.type} == 2">
+                <f:then>
+                    <f:image alt="{mediaItem.newsItem.title}" src="{mediaItem.image.uid}" treatIdAsReference="1" width="300m" height="300m" />
+                </f:then>
+                <f:else>
+                    <f:image alt="{mediaItem.newsItem.title}" src="uploads/tx_news/{mediaItem.image.image}" width="300m" height="300m" />
+                </f:else>
+            </f:if>
+
   		</n:link>
 	</f:for>
 </div>
-
-<script>
-$(document).ready(function() {
-	$('.wizz-newsgallery').justifiedGallery({
-		sizeRangeSuffixes: {
-			'lt100':'', 
-			'lt240':'', 
-			'lt320':'', 
-			'lt500':'', 
-			'lt640':'', 
-			'lt1024':''
-		}
-	});
-});
-</script>
 
 </f:section>

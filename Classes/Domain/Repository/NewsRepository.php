@@ -31,10 +31,57 @@ namespace TYPO3\WizzNewsgallery\Domain\Repository;
  */
 class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
+    protected $storagePid;
+
+    protected $ignoreStoragePid = false;
+
 	public function findAll() {
 		$query = $this->createQuery();
+        if ($this->shouldIgnoreStoragePid()) {
+            $query->getQuerySettings()->setRespectStoragePage(false);
+        }
+        else {
+            $query->getQuerySettings()->setRespectStoragePage(true);
+            $query->getQuerySettings()->setStoragePageIds(array($this->getStoragePid()));
+        }
 		$query->setOrderings(array('datetime' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING));
 	    return $query->execute();
 	}
+
+    /**
+     * @return boolean
+     */
+    public function shouldIgnoreStoragePid()
+    {
+        return $this->ignoreStoragePid;
+    }
+
+    /**
+     * @param boolean $ignoreStoragePid
+     */
+    public function setIgnoreStoragePid($ignoreStoragePid)
+    {
+        $this->ignoreStoragePid = $ignoreStoragePid;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getStoragePid()
+    {
+        return $this->storagePid;
+    }
+
+    /**
+     * @param mixed $storagePid
+     */
+    public function setStoragePid($storagePid)
+    {
+        $this->storagePid = $storagePid;
+    }
+
+
 
 }

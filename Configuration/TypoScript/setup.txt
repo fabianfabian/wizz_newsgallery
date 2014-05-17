@@ -23,4 +23,4 @@ plugin.tx_wizznewsgallery {
 
 page.includeCSS.wizz_newsgallery_justified_gallery = EXT:wizz_newsgallery/Resources/Public/Justified-Gallery/jquery.justifiedgallery.min.css
 page.includeJSFooter.wizz_newsgallery_justified_gallery = EXT:wizz_newsgallery/Resources/Public/Justified-Gallery/jquery.justifiedgallery.min.js
-
+page.includeJSFooter.wizz_newsgallery = EXT:wizz_newsgallery/Resources/Public/wizz_gallery.js

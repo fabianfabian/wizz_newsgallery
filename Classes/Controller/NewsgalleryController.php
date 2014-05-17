@@ -24,6 +24,7 @@ namespace TYPO3\WizzNewsgallery\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
  *
@@ -41,7 +42,21 @@ class NewsgalleryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 	 */
 	protected $newsRepository;
 
-	/**
+
+    protected function initializeAction()
+    {
+        parent::initializeAction();
+        if ($this->settings['startingpoint']) {
+            $this->newsRepository->setStoragePid($this->settings['startingpoint']);
+            $this->newsRepository->setIgnoreStoragePid(false);
+        }
+        else {
+            $this->newsRepository->setIgnoreStoragePid(true);
+        }
+    }
+
+
+    /**
 	 * Show gallery
 	 *
 	 * @return void
@@ -76,17 +91,28 @@ class NewsgalleryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * @return array|null
      */
     protected function getMediaTypeImage(\Tx_News_Domain_Model_News $news) {
-        $mediaElements = $news->getMedia();
 
-        $collection = array();
-        foreach ($mediaElements as $mediaElement) {
-            if ((int)$mediaElement->getType() === \Tx_News_Domain_Model_Media::MEDIA_TYPE_IMAGE) {
-                $collection[] = $mediaElement;
+        $result = array();
+
+        if (ExtensionManagementUtility::getExtensionVersion('news') >= "3.0.0") {
+            $falMediaElements = $news->getFalMedia();
+            foreach($falMediaElements as $mediaElement) {
+                if ($mediaElement->getOriginalResource()->getType() == 2) {
+                    $result[] = $mediaElement->getOriginalResource();
+                }
             }
         }
 
-        if (count($collection) > 0) {
-            return $collection;
+        $mediaElements = $news->getMedia();
+
+        foreach ($mediaElements as $mediaElement) {
+            if ((int)$mediaElement->getType() === \Tx_News_Domain_Model_Media::MEDIA_TYPE_IMAGE) {
+                $result[] = $mediaElement;
+            }
+        }
+
+        if (count($result) > 0) {
+            return $result;
         }
 
         return NULL;

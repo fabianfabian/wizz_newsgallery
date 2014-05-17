@@ -11,9 +11,16 @@ Rendering of the gallery is done using the jQuery plugin [Justified-Gallery](htt
 Screenshots
 -----------
 
+TYPO3 6.2.2 Bootstrap package + News 3.0.0:
+![Screenshot-frontend](Resources/Screenshots/Newsgallery_622.png)
+
+TYPO3 6.1.0 Introduction package + News 2.3.0:
 ![Screenshot-frontend](Resources/Screenshots/Newsgallery_frontend.png)
 
+Backend:
 ![Screenshot-backend](Resources/Screenshots/Newsgallery_backend.png)
+
+
 
 Installation
 ============
@@ -29,7 +36,7 @@ Available options are:
 * Startingpoint: Should point to folder where news items are located
 * Max records displayed: Limit the maximum number of images shown
 * PageId for single news display: Clicking on an image will open the news item on this page
-* To configure Justified-Gallery options, edit the template at EXT:wizz_newsgallery/Resources/Private/Templates/Newsgallery/Show.html (from line 19). See [Justified Gallery](http://miromannino.com/projects/justified-gallery/) for Justified-Gallery options
+* To configure Justified-Gallery options, edit the file at typo3conf/ext/wizz_newsgallery/Resources/Public/wizz_gallery.js. See [Justified Gallery](http://miromannino.com/projects/justified-gallery/) for Justified-Gallery options
 
 Notes
 =====
